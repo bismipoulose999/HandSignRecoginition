@@ -56,7 +56,7 @@ class MainDrawer extends StatelessWidget {
             ],
           )),
         ),
-        ListTile(
+       /* ListTile(
           leading: Icon(Icons.supervised_user_circle),
           title: Text(
             'Profile',
@@ -73,7 +73,7 @@ class MainDrawer extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-        ),
+        ),*/
         ListTile(
           leading: Icon(Icons.description),
           title: Text(

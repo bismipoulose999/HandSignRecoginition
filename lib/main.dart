@@ -50,9 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     padding: EdgeInsets.fromLTRB(30.0, 110.0, 0.0, 0.0),
                     child: Text(
-                      'Hello',
+                      'Welcome',
                       style: TextStyle(
-                          fontSize: 80.0, fontWeight: FontWeight.bold),
+                          fontSize: 40.0, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -60,14 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Row(
                       children: <Widget>[
                         Text(
-                          'There',
+                          'Sign',
                           style: TextStyle(
-                              fontSize: 80.0, fontWeight: FontWeight.bold),
+                              fontSize: 40.0, fontWeight: FontWeight.bold),
                         ),
                         Text(
                           '.',
                           style: TextStyle(
-                            fontSize: 80.0,
+                            fontSize: 40.0,
                             fontWeight: FontWeight.bold,
                             color: Colors.green,
                           ),
@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.green))),
                   ),
-                  SizedBox(height: 5.0),
+                  /*SizedBox(height: 5.0),
                   Container(
                     alignment: Alignment(1.0, 0.0),
                     padding: EdgeInsets.only(top: 15.0, left: 20.0),
@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             decoration: TextDecoration.underline),
                       ),
                     ),
-                  ),
+                  ),*/
                   SizedBox(height: 40.0),
                   Container(
                     height: 50.0,
@@ -164,15 +164,20 @@ class _MyHomePageState extends State<MyHomePage> {
                           bool res = await AuthProvider().signInWithEmail(
                               _emailController.text, _passwordController.text);
                           if (!res) {
-                            print("Login failed");
+                            print("Login Success");
                             Fluttertoast.showToast(
-                                msg: "Login failed",
+                                msg: "Login Success",
                                 toastLength: Toast.LENGTH_LONG,
                                 gravity: ToastGravity.BOTTOM,
                                 timeInSecForIosWeb: 1,
                                 backgroundColor: Colors.green,
                                 textColor: Colors.white,
                                 fontSize: 14.0);
+                          }
+                          if(_emailController.text.isNotEmpty &&
+                              _passwordController.text.isNotEmpty)
+                          {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(currentUser)));
                           }
                         },
                         child: Center(
@@ -182,7 +187,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: 'Montserrat'),
-                          ),
+                          ),/*RaisedButton(
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(currentUser)));
+
+                            },
+                            child: Text("Login",style: TextStyle(color: Colors.black),),
+                            color: Colors.green,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(35)
+                            ),
+                          ),*/
                         ),
                       ),
                     ),
